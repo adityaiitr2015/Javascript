@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>
+		     variables
+		</title>
+
+	</head>
+	
+	<body>
+		<input type="text" id="textinput">
+		
+		<button id="TextChanger"> Type the text. </button>
+		
+		<p id="change"> My Name is Aditya. </p>
+		
+		<script type="text/javascript">
+			document.getElementById("TextChanger").onclick=function()
+			{
+			    var show="";
+				
+				show= document.getElementById("textinput").value;
+				
+				document.getElementById("change").innerHTML=show;
+			}
+		</script>
+	
+	</body>

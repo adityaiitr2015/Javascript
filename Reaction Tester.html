@@ -1,0 +1,70 @@
+<html>
+	<head>
+	    <title>
+	        Reaction Tester Game
+		</title>
+	
+		<style type="text/css">
+			#polygon
+			{
+				height:400px;
+				width:400px;
+				float:left;
+				margin:50px;
+				background-color:red;
+				display:none;
+				position:relative;
+			}
+
+		</style>
+	</head>
+	
+	<body>
+	    <p><h1> Reaction Tester Game </h1></p>
+		
+		<p> Click on the following figures to test your reaction time.</p>
+		<p> Your time: <span id="timetaken"> </span> </p>
+		<div id="polygon" ></div>
+		<script type="text/javascript">
+			var start= new Date().getTime();
+			function randomcolor()
+			{
+			    
+			}
+			function makeappear()
+			{
+			    var top=Math.random()*400;
+				var right=Math.random() * 400;
+				var width=Math.random() *300 +50;
+				var height=Math.random()* 100 +50;
+				var temp=Math.random()*1;
+				if(temp<0.5)
+				{
+				   document.getElementById("polygon").style.borderRadius="50%";
+				}
+				
+			    var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+			    
+				document.getElementById("polygon").style.backgroundColor=hue;
+				document.getElementById("polygon").style.top= top+"px";
+				document.getElementById("polygon").style.left= right+"px";
+				document.getElementById("polygon").style.height=height+"px";
+				document.getElementById("polygon").style.width = width + "px";
+			    document.getElementById("polygon").style.display="block";
+				start= new Date().getTime();
+			}
+			
+			setTimeout(makeappear, Math.random()*1000);
+			document.getElementById("polygon").onclick = function()
+			{
+			    document.getElementById("polygon").style.display="none";
+				var end= new Date().getTime();
+				var time=(end-start)/1000; 
+				document.getElementById("timetaken").innerHTML= time + "s";
+				setTimeout(makeappear, Math.random()*1000);
+			}
+			
+		</script>
+		
+	</body>
+</html>
